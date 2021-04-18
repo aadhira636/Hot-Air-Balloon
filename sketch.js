@@ -1,12 +1,9 @@
 var balloon,balloonImage1,balloonImage2;
-// create database and position variable here
 
 function preload(){
    bg =loadImage("cityImage.png");
    balloonImage1=loadAnimation("hotairballoon1.png");
-   balloonImage2=loadAnimation("hotairballoon1.png","hotairballoon1.png",
-   "hotairballoon1.png","hotairballoon2.png","hotairballoon2.png",
-   "hotairballoon2.png","hotairballoon3.png","hotairballoon3.png","hotairballoon3.png");
+   balloonImage2=loadAnimation("hotairballoon1.png","hotairballoon2.png","hotairballoon3.png");
   }
 
 //Function to set initial environment
@@ -27,22 +24,25 @@ function draw() {
   drawSprites();
 
   if(keyDown(LEFT_ARROW)){
-    balloon.addAnimation("hotAirBalloon",balloonImage2);
-    changePosition(-1,0);
+    balloon.x = -1;
+    balloon.addAnimation(balloonImage2,"hotAirBalloon");
+    
   
   }
-  else if(keyDown(RIGHT_ARROW)){
-    balloon.addAnimation("hotAirBalloon",balloonImage2);
-    changePosition(1,0);
+   if(keyDown(RIGHT_ARROW)){
+    balloon.x = 1;
+    balloon.addAnimation(balloonImage2,"hotAirBalloon");
   
   }
-  else if(keyDown(UP_ARROW)){
-    balloon.addAnimation("hotAirBalloon",balloonImage2);
-    changePosition(0,-1);
+   if(keyDown(UP_ARROW)){
+    balloon.y = -1;   
+    balloon.addAnimation(balloonImage2,"hotAirBalloon");
+   
   }
-  else if(keyDown(DOWN_ARROW)){
-    balloon.addAnimation("hotAirBalloon",balloonImage2);
-    changePosition(0,1);
+   if(keyDown(DOWN_ARROW)){
+    balloon.y = 1;
+    balloon.addAnimation(balloonImage2,"hotAirBalloon");
+    
     
   }
 
